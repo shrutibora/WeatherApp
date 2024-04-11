@@ -8,7 +8,7 @@ const cityModel = require("./models.js")
 const urlDB = "mongodb+srv://shrutib952:Learn00000@clusterlearn.6fq3spc.mongodb.net/cityNames?retryWrites=true&w=majority"
 
 const app = express();
-
+const port = process.env.PORT || 3000;
 app.set("view engine", "ejs");
 
 app.use(bodyParser.urlencoded({extended:true}));
@@ -90,7 +90,7 @@ mongoose.connect(urlDB,{
     useUnifiedTopology: true
   })
 .then(()=>{
-    app.listen(3000,()=>{
+    app.listen(port,"0.0.0.0", ()=>{
         console.log("Your app is now listening very carefully!");
     })
 },err=>{
